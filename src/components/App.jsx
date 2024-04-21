@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Searchbar from './components/Searchbar';
+import Searchbar from '../components/Searchbar';
 import ImageGallery from './components/ImageGallery';
 
 function App() {
