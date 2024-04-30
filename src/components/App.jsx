@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Searchbar from './components/Searchbar';
-import ImageGallery from './components/ImageGallery';
+import Searchbar from 'Searchbar';
+import ImageGallery from 'ImageGallery';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
