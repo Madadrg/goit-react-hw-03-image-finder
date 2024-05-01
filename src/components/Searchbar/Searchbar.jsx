@@ -1,11 +1,14 @@
-// components/Searchbar.jsx
 import React, { useState } from 'react';
 
-function Searchbar({ onSubmit }) {
+const SearchBar = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  const handleChange = event => {
+    setQuery(event.target.value);
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
     onSubmit(query);
   };
 
@@ -15,6 +18,7 @@ function Searchbar({ onSubmit }) {
         <button type="submit" className="button">
           <span className="button-label">Search</span>
         </button>
+
         <input
           className="input"
           type="text"
@@ -22,11 +26,11 @@ function Searchbar({ onSubmit }) {
           autoFocus
           placeholder="Search images and photos"
           value={query}
-          onChange={e => setQuery(e.target.value)}
+          onChange={handleChange}
         />
       </form>
     </header>
   );
-}
+};
 
-export default Searchbar;
+export default SearchBar;

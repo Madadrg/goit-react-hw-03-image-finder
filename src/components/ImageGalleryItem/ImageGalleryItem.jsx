@@ -1,12 +1,11 @@
-// components/ImageGalleryItem.jsx
 import React from 'react';
 
-function ImageGalleryItem({ image }) {
+const ImageGalleryItem = ({ imageUrl, alt }) => {
   return (
     <li className="gallery-item">
-      <img src={image.webformatURL} alt={image.tags} />
+      <img src={imageUrl} alt={alt} />
     </li>
   );
-}
+};
 
 export default ImageGalleryItem;

@@ -1,34 +1,32 @@
-// components/Modal.jsx
 import React, { useEffect } from 'react';
 
-function Modal({ image, onClose }) {
-  // Close modal when ESC key is pressed
-  useEffect(() => {
-    const handleKeyDown = e => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
-    };
-    document.addEventListener('keydown', handleKeyDown);
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [onClose]);
-
-  // Close modal when overlay is clicked
-  const handleOverlayClick = e => {
-    if (e.target === e.currentTarget) {
+const Modal = ({ imageUrl, alt, onClose }) => {
+  const handleKeyDown = event => {
+    if (event.keyCode === 27) {
       onClose();
     }
   };
 
+  const handleClickOutside = event => {
+    if (event.target.classList.contains('overlay')) {
+      onClose();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   return (
-    <div className="overlay" onClick={handleOverlayClick}>
+    <div className="overlay" onClick={handleClickOutside}>
       <div className="modal">
-        <img src={image.largeImageURL} alt={image.tags} />
+        <img src={imageUrl} alt={alt} />
       </div>
     </div>
   );
-}
+};
 
 export default Modal;

@@ -1,13 +1,8 @@
-// components/Loader.jsx
 import React from 'react';
-import LoaderSpinner from 'react-loader-spinner'; // You can replace 'react-loader-spinner' with any other spinner library you prefer
+import { ThreeDots } from 'react-loader-spinner';
 
-function Loader() {
-  return (
-    <div className="loader">
-      <LoaderSpinner type="TailSpin" color="#00BFFF" height={80} width={80} />
-    </div>
-  );
-}
+const Loader = () => {
+  return <ThreeDots color="#00BFFF" height={80} width={80} />;
+};
 
 export default Loader;
