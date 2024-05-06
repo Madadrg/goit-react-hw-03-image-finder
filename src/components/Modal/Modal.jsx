@@ -18,7 +18,7 @@ const Modal = ({ imageUrl, alt, onClose }) => {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [handleKeyDown]); // Include handleKeyDown in the dependency array
 
   return (
     <div className="overlay" onClick={handleClickOutside}>
